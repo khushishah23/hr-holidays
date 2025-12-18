@@ -2,12 +2,12 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import "./App.css";
 
-/* ---------- PAGE SECTIONS ---------- */
+/* ---------- SHARED COMPONENTS ---------- */
 
-function HeroSection({ title, subtitle }) {
+function PageHero({ title, subtitle }) {
   return (
     <section className="page-hero">
-      <div className="page-hero-overlay">
+      <div className="page-hero-content">
         <h1>{title}</h1>
         <p>{subtitle}</p>
       </div>
@@ -15,8 +15,13 @@ function HeroSection({ title, subtitle }) {
   );
 }
 
-function ContentSection({ children }) {
-  return <section className="page-content">{children}</section>;
+function Section({ title, children, light }) {
+  return (
+    <section className={`section ${light ? "light" : ""}`}>
+      <h2>{title}</h2>
+      <div className="section-content">{children}</div>
+    </section>
+  );
 }
 
 /* ---------- PAGES ---------- */
@@ -24,28 +29,44 @@ function ContentSection({ children }) {
 function Home() {
   return (
     <>
-      <section className="hero">
-        <div className="overlay">
-          <div className="hero-content">
-            <h1>
-              Travel the World <br />
-              the Luxury Way
-            </h1>
-            <p>
-              Bespoke domestic & international holidays with seamless
-              passport and visa assistance.
-            </p>
-            <a
-              href="https://wa.me/918980217355"
-              target="_blank"
-              rel="noreferrer"
-              className="btn"
-            >
-              Book Now on WhatsApp
-            </a>
-          </div>
+      {/* HERO */}
+      <section className="home-hero">
+        <div className="home-hero-content">
+          <h1>
+            Travel the World <br /> in Luxury
+          </h1>
+          <p>
+            Premium domestic & international holidays with complete
+            passport and visa assistance.
+          </p>
+          <a
+            href="https://wa.me/918980217355"
+            target="_blank"
+            rel="noreferrer"
+            className="btn"
+          >
+            Book on WhatsApp
+          </a>
         </div>
       </section>
+
+      {/* DOMESTIC */}
+      <Section title="Domestic Destinations">
+        <div className="grid">
+          <div className="image-card kashmir">Kashmir</div>
+          <div className="image-card kerala">Kerala</div>
+          <div className="image-card goa">Goa</div>
+        </div>
+      </Section>
+
+      {/* INTERNATIONAL */}
+      <Section title="International Destinations" light>
+        <div className="grid">
+          <div className="image-card maldives">Maldives</div>
+          <div className="image-card dubai">Dubai</div>
+          <div className="image-card bali">Bali</div>
+        </div>
+      </Section>
     </>
   );
 }
@@ -53,17 +74,17 @@ function Home() {
 function Domestic() {
   return (
     <>
-      <HeroSection
+      <PageHero
         title="Domestic Luxury Holidays"
-        subtitle="Explore India with comfort, elegance, and curated experiences."
+        subtitle="Explore India with curated comfort and elegance."
       />
-      <ContentSection>
-        <p>
-          From the serene valleys of Kashmir to the tranquil backwaters of
-          Kerala, HR Holidays offers handpicked domestic travel experiences
-          designed for luxury and peace of mind.
-        </p>
-      </ContentSection>
+      <Section title="Popular Domestic Packages">
+        <div className="grid">
+          <div className="info-card">Kashmir Luxury Escape</div>
+          <div className="info-card">Kerala Backwaters Retreat</div>
+          <div className="info-card">Royal Rajasthan Tour</div>
+        </div>
+      </Section>
     </>
   );
 }
@@ -71,17 +92,17 @@ function Domestic() {
 function International() {
   return (
     <>
-      <HeroSection
-        title="International Travel Experiences"
-        subtitle="Luxury journeys across the world, crafted just for you."
+      <PageHero
+        title="International Experiences"
+        subtitle="Luxury journeys across iconic global destinations."
       />
-      <ContentSection>
-        <p>
-          Discover iconic international destinations like Maldives, Dubai,
-          Bali, and Europe with premium stays, seamless planning, and expert
-          guidance.
-        </p>
-      </ContentSection>
+      <Section title="Top International Packages">
+        <div className="grid">
+          <div className="info-card">Maldives Overwater Villas</div>
+          <div className="info-card">Dubai Premium City Tour</div>
+          <div className="info-card">Bali Private Villa Stay</div>
+        </div>
+      </Section>
     </>
   );
 }
@@ -89,17 +110,17 @@ function International() {
 function Services() {
   return (
     <>
-      <HeroSection
+      <PageHero
         title="Passport & Visa Services"
-        subtitle="Professional documentation support, end to end."
+        subtitle="Documentation handled professionally and smoothly."
       />
-      <ContentSection>
-        <p>
-          We assist with passport applications, renewals, and tourist,
-          student, and business visas — ensuring a smooth and stress-free
-          process.
-        </p>
-      </ContentSection>
+      <Section title="Our Services" light>
+        <div className="grid">
+          <div className="info-card">Passport Application & Renewal</div>
+          <div className="info-card">Tourist Visa Assistance</div>
+          <div className="info-card">Student & Business Visas</div>
+        </div>
+      </Section>
     </>
   );
 }
@@ -107,16 +128,17 @@ function Services() {
 function Customize() {
   return (
     <>
-      <HeroSection
+      <PageHero
         title="Customize Your Trip"
-        subtitle="Because no two journeys should ever be the same."
+        subtitle="Your journey, designed exactly your way."
       />
-      <ContentSection>
-        <p>
-          Tell us your destination, travel style, and budget. We’ll design a
-          personalized itinerary that matches your vision perfectly.
-        </p>
-      </ContentSection>
+      <Section title="How It Works">
+        <div className="grid">
+          <div className="info-card">Tell us your destination</div>
+          <div className="info-card">We design your itinerary</div>
+          <div className="info-card">You travel stress-free</div>
+        </div>
+      </Section>
     </>
   );
 }
@@ -124,16 +146,17 @@ function Customize() {
 function HappyClients() {
   return (
     <>
-      <HeroSection
+      <PageHero
         title="Happy Clients"
-        subtitle="Stories from travelers who trusted HR Holidays."
+        subtitle="Travel stories that speak for our service."
       />
-      <ContentSection>
-        <p>
-          Our clients choose us for our transparency, personalized service,
-          and attention to detail. Their journeys speak for themselves.
-        </p>
-      </ContentSection>
+      <Section title="What Our Clients Say" light>
+        <div className="grid">
+          <div className="info-card">“Everything was perfectly managed.”</div>
+          <div className="info-card">“Truly luxury travel experience.”</div>
+          <div className="info-card">“Visa process was seamless.”</div>
+        </div>
+      </Section>
     </>
   );
 }
@@ -141,17 +164,17 @@ function HappyClients() {
 function About() {
   return (
     <>
-      <HeroSection
+      <PageHero
         title="About HR Holidays"
-        subtitle="Your trusted partner in luxury travel."
+        subtitle="A premium travel company you can trust."
       />
-      <ContentSection>
+      <Section title="Who We Are">
         <p>
-          HR Holidays is a premium travel company offering domestic and
-          international holiday packages along with complete passport and
-          visa assistance.
+          HR Holidays specializes in luxury domestic and international
+          travel experiences, along with end-to-end passport and visa
+          services.
         </p>
-      </ContentSection>
+      </Section>
     </>
   );
 }
@@ -162,7 +185,6 @@ export default function App() {
   return (
     <>
       <Navbar />
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/domestic" element={<Domestic />} />
