@@ -2,12 +2,12 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import "./App.css";
 
-/* ---------- SHARED COMPONENTS ---------- */
+/* ---------- SHARED ---------- */
 
 function PageHero({ title, subtitle }) {
   return (
     <section className="page-hero">
-      <div className="page-hero-content">
+      <div className="page-hero-inner">
         <h1>{title}</h1>
         <p>{subtitle}</p>
       </div>
@@ -19,7 +19,7 @@ function Section({ title, children, light }) {
   return (
     <section className={`section ${light ? "light" : ""}`}>
       <h2>{title}</h2>
-      <div className="section-content">{children}</div>
+      <div className="section-inner">{children}</div>
     </section>
   );
 }
@@ -31,7 +31,7 @@ function Home() {
     <>
       {/* HERO */}
       <section className="home-hero">
-        <div className="home-hero-content">
+        <div className="home-hero-inner">
           <h1>
             Travel the World <br /> in Luxury
           </h1>
@@ -169,11 +169,11 @@ function About() {
         subtitle="A premium travel company you can trust."
       />
       <Section title="Who We Are">
-        <p>
+        <div className="center-text">
           HR Holidays specializes in luxury domestic and international
-          travel experiences, along with end-to-end passport and visa
-          services.
-        </p>
+          travel experiences, along with complete passport and visa
+          assistance.
+        </div>
       </Section>
     </>
   );
