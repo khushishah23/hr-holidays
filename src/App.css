@@ -1,23 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  margin: 0;
   font-family: "Poppins", sans-serif;
-  background: #f4f9ff;
+  background: #f2f7fb;
   color: #0f172a;
 }
 
-/* HOME HERO — LANDSCAPE & CENTERED */
-.home-hero {
+/* ---------- FULL HERO ---------- */
+.full-hero {
+  width: 100vw;
   height: 100vh;
-  width: 100%;
   background: linear-gradient(
-      rgba(8, 28, 60, 0.45),
-      rgba(8, 28, 60, 0.85)
+      rgba(5, 20, 45, 0.55),
+      rgba(5, 20, 45, 0.85)
     ),
     url("/hero.jpg");
   background-size: cover;
@@ -28,113 +29,60 @@ body {
   text-align: center;
 }
 
-.home-hero-inner {
-  max-width: 900px;
+.full-hero-overlay {
+  max-width: 1000px;
+  padding: 0 30px;
   color: white;
-  padding: 0 20px;
 }
 
-.home-hero-inner h1 {
-  font-size: 4.5rem;
+.full-hero-overlay h1 {
+  font-size: 4.8rem;
+  font-weight: 600;
 }
 
-.home-hero-inner p {
-  font-size: 1.3rem;
-  margin: 30px 0;
+.full-hero-overlay p {
+  font-size: 1.4rem;
+  margin-top: 25px;
+  opacity: 0.9;
 }
 
-/* PAGE HERO — CENTERED */
-.page-hero {
+/* ---------- IMAGE ROWS ---------- */
+.image-row {
+  width: 100vw;
+  display: flex;
   height: 55vh;
-  background: linear-gradient(
-      rgba(8, 28, 60, 0.6),
-      rgba(8, 28, 60, 0.9)
-    ),
-    url("/hero.jpg");
+}
+
+.image-tile {
+  flex: 1;
   background-size: cover;
   background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.page-hero-inner {
-  color: white;
-  max-width: 900px;
-  padding: 0 20px;
-}
-
-/* SECTIONS — FULL WIDTH FEEL */
-.section {
-  padding: 100px 6%;
-  background: white;
-  text-align: center;
-}
-
-.section.light {
-  background: #f4f9ff;
-}
-
-.section h2 {
-  font-size: 2.8rem;
-  margin-bottom: 60px;
-}
-
-/* CENTERED CONTENT */
-.section-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* GRIDS — LANDSCAPE */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 35px;
-}
-
-/* IMAGE CARDS */
-.image-card {
-  height: 340px;
-  border-radius: 24px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding: 30px;
+  padding-bottom: 40px;
   font-size: 1.6rem;
   color: white;
-  background-size: cover;
-  background-position: center;
+  letter-spacing: 1px;
 }
 
-/* INFO CARDS */
-.info-card {
+.image-tile span {
+  background: rgba(0, 0, 0, 0.45);
+  padding: 12px 26px;
+  border-radius: 30px;
+}
+
+/* ---------- CENTER STRIP ---------- */
+.center-strip {
+  width: 100vw;
+  padding: 120px 20%;
+  text-align: center;
   background: white;
-  padding: 40px;
-  border-radius: 22px;
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  font-size: 1.15rem;
+  line-height: 1.9;
 }
 
-/* BUTTON */
-.btn {
-  padding: 16px 42px;
-  background: #1e88e5;
-  color: white;
-  text-decoration: none;
-  border-radius: 40px;
-  font-size: 1rem;
-}
-
-/* TEXT CENTER */
-.center-text {
-  max-width: 800px;
-  margin: 0 auto;
-  font-size: 1.1rem;
-  line-height: 1.8;
-}
-
-/* IMAGES */
+/* ---------- IMAGES ---------- */
 .kashmir { background-image: url("/kashmir.jpg"); }
 .kerala { background-image: url("/kerala.jpg"); }
 .goa { background-image: url("/goa.jpg"); }
