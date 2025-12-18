@@ -1,12 +1,11 @@
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import "./App.css";
 
-export default function App() {
+/* PAGES */
+function Home() {
   return (
     <>
-      <Navbar />
-
-      {/* HERO */}
       <section className="hero">
         <div className="overlay">
           <div className="hero-content">
@@ -29,54 +28,48 @@ export default function App() {
           </div>
         </div>
       </section>
+    </>
+  );
+}
 
-      {/* DOMESTIC DESTINATIONS */}
-      <section className="destinations">
-        <h2>Domestic Destinations</h2>
-        <div className="destination-grid">
-          <div className="destination-card kashmir">
-            <div className="destination-overlay">
-              <h3>Kashmir</h3>
-            </div>
-          </div>
+function Domestic() {
+  return <div className="page">Domestic Packages</div>;
+}
 
-          <div className="destination-card kerala">
-            <div className="destination-overlay">
-              <h3>Kerala</h3>
-            </div>
-          </div>
+function International() {
+  return <div className="page">International Packages</div>;
+}
 
-          <div className="destination-card goa">
-            <div className="destination-overlay">
-              <h3>Goa</h3>
-            </div>
-          </div>
-        </div>
-      </section>
+function Services() {
+  return <div className="page">Passport & Visa Services</div>;
+}
 
-      {/* INTERNATIONAL DESTINATIONS */}
-      <section className="destinations light">
-        <h2>International Destinations</h2>
-        <div className="destination-grid">
-          <div className="destination-card maldives">
-            <div className="destination-overlay">
-              <h3>Maldives</h3>
-            </div>
-          </div>
+function Customize() {
+  return <div className="page">Customize Your Trip</div>;
+}
 
-          <div className="destination-card dubai">
-            <div className="destination-overlay">
-              <h3>Dubai</h3>
-            </div>
-          </div>
+function HappyClients() {
+  return <div className="page">Happy Clients</div>;
+}
 
-          <div className="destination-card bali">
-            <div className="destination-overlay">
-              <h3>Bali</h3>
-            </div>
-          </div>
-        </div>
-      </section>
+function About() {
+  return <div className="page">About HR Holidays</div>;
+}
+
+export default function App() {
+  return (
+    <>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/domestic" element={<Domestic />} />
+        <Route path="/international" element={<International />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/customize" element={<Customize />} />
+        <Route path="/happy-clients" element={<HappyClients />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
     </>
   );
 }
