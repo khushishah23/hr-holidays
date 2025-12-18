@@ -9,49 +9,55 @@ export default function App() {
       {/* HERO SECTION */}
       <section className="hero">
         <div className="overlay">
-          <h1>HR HOLIDAYS</h1>
-          <p>
-            Luxury Domestic & International Travel <br />
-            Passport & Visa Assistance
-          </p>
+          <div className="hero-content">
+            <h1>
+              Travel the World <br />
+              the Luxury Way
+            </h1>
 
-          <a
-            href="https://wa.me/918980217355"
-            target="_blank"
-            rel="noreferrer"
-            className="btn"
-          >
-            Book Now on WhatsApp
-          </a>
+            <p>
+              Bespoke domestic & international holidays with seamless
+              passport and visa assistance.
+            </p>
+
+            <a
+              href="https://wa.me/918980217355"
+              target="_blank"
+              rel="noreferrer"
+              className="btn"
+            >
+              Book Now on WhatsApp
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* SERVICES SECTION */}
+      {/* SERVICES */}
       <section className="services">
         <h2>Our Services</h2>
 
         <div className="cards">
           <div className="card">
-            <h3>Domestic & International Tours</h3>
+            <h3>Luxury Tours</h3>
             <p>
-              Curated luxury travel experiences designed for comfort,
-              elegance, and unforgettable memories.
+              Carefully curated domestic and international travel
+              experiences designed for comfort and elegance.
             </p>
           </div>
 
           <div className="card">
             <h3>Passport Assistance</h3>
             <p>
-              Complete end-to-end support for new passports and renewals
-              with zero hassle.
+              Complete end-to-end support for passport applications and
+              renewals without stress.
             </p>
           </div>
 
           <div className="card">
             <h3>Visa Services</h3>
             <p>
-              Tourist, student, and business visa services handled
-              professionally and efficiently.
+              Tourist, student, and business visas handled professionally
+              and efficiently.
             </p>
           </div>
         </div>
