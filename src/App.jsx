@@ -2,31 +2,37 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import "./App.css";
 
-/* ---------- FULL BLEED SECTIONS ---------- */
+/* ---------- COMPONENTS ---------- */
 
-function FullBleedHero({ title, subtitle }) {
+function Hero({ title, subtitle }) {
   return (
-    <section className="full-hero">
-      <div className="full-hero-overlay">
-        <h1>{title}</h1>
+    <section className="hero">
+      <div className="hero-overlay">
+        <h1>HR HOLIDAYS</h1>
+        <h2>{title}</h2>
         <p>{subtitle}</p>
+        <a
+          href="https://wa.me/918980217355"
+          target="_blank"
+          rel="noreferrer"
+          className="btn"
+        >
+          Book Now
+        </a>
       </div>
     </section>
   );
 }
 
-function ImageRow({ items }) {
+function Carousel({ items }) {
   return (
-    <section className="image-row">
+    <div className="carousel">
       {items.map((item) => (
-        <div
-          key={item.label}
-          className={`image-tile ${item.class}`}
-        >
+        <div key={item.label} className={`carousel-card ${item.class}`}>
           <span>{item.label}</span>
         </div>
       ))}
-    </section>
+    </div>
   );
 }
 
@@ -35,41 +41,80 @@ function ImageRow({ items }) {
 function Home() {
   return (
     <>
-      <FullBleedHero
-        title="Travel the World in Luxury"
-        subtitle="Premium domestic & international holidays with seamless passport and visa assistance"
+      <Hero
+        title="Luxury Travel Experiences"
+        subtitle="Domestic & International holidays with seamless passport and visa assistance"
       />
 
-      <ImageRow
-        items={[
-          { label: "Kashmir", class: "kashmir" },
-          { label: "Kerala", class: "kerala" },
-          { label: "Goa", class: "goa" },
-        ]}
-      />
+      <section className="carousel-section">
+        <h3>Domestic Holidays</h3>
+        <Carousel
+          items={[
+            { label: "Kashmir", class: "kashmir" },
+            { label: "Kerala", class: "kerala" },
+            { label: "Goa", class: "goa" },
+            { label: "Rajasthan", class: "rajasthan" },
+          ]}
+        />
+        <a
+          href="https://wa.me/918980217355"
+          target="_blank"
+          rel="noreferrer"
+          className="btn small"
+        >
+          Book Domestic Package
+        </a>
+      </section>
 
-      <ImageRow
-        items={[
-          { label: "Maldives", class: "maldives" },
-          { label: "Dubai", class: "dubai" },
-          { label: "Bali", class: "bali" },
-        ]}
-      />
+      <section className="carousel-section light">
+        <h3>International Holidays</h3>
+        <Carousel
+          items={[
+            { label: "Maldives", class: "maldives" },
+            { label: "Dubai", class: "dubai" },
+            { label: "Bali", class: "bali" },
+            { label: "Europe", class: "europe" },
+          ]}
+        />
+        <a
+          href="https://wa.me/918980217355"
+          target="_blank"
+          rel="noreferrer"
+          className="btn small"
+        >
+          Book International Package
+        </a>
+      </section>
     </>
   );
 }
 
-function SimplePage({ title, subtitle }) {
+function SimplePage({ title }) {
   return (
     <>
-      <FullBleedHero title={title} subtitle={subtitle} />
-      <div className="center-strip">
-        <p>
-          HR Holidays delivers curated luxury travel experiences with
-          complete documentation support, ensuring comfort, clarity,
-          and confidence at every step.
-        </p>
-      </div>
+      <Hero
+        title={title}
+        subtitle="Curated luxury journeys designed with care and expertise"
+      />
+
+      <section className="carousel-section">
+        <h3>Popular Choices</h3>
+        <Carousel
+          items={[
+            { label: "Premium Stay", class: "maldives" },
+            { label: "Guided Tours", class: "dubai" },
+            { label: "Luxury Transport", class: "bali" },
+          ]}
+        />
+        <a
+          href="https://wa.me/918980217355"
+          target="_blank"
+          rel="noreferrer"
+          className="btn small"
+        >
+          Book Now
+        </a>
+      </section>
     </>
   );
 }
@@ -82,60 +127,15 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route
-          path="/domestic"
-          element={
-            <SimplePage
-              title="Domestic Luxury Holidays"
-              subtitle="Explore India without compromise"
-            />
-          }
-        />
+        <Route path="/domestic" element={<SimplePage title="Domestic Holidays" />} />
         <Route
           path="/international"
-          element={
-            <SimplePage
-              title="International Experiences"
-              subtitle="Global destinations, premium journeys"
-            />
-          }
+          element={<SimplePage title="International Holidays" />}
         />
-        <Route
-          path="/services"
-          element={
-            <SimplePage
-              title="Passport & Visa Services"
-              subtitle="Documentation done right"
-            />
-          }
-        />
-        <Route
-          path="/customize"
-          element={
-            <SimplePage
-              title="Customize Your Trip"
-              subtitle="Your journey, designed your way"
-            />
-          }
-        />
-        <Route
-          path="/happy-clients"
-          element={
-            <SimplePage
-              title="Happy Clients"
-              subtitle="Journeys that earned trust"
-            />
-          }
-        />
-        <Route
-          path="/about"
-          element={
-            <SimplePage
-              title="About HR Holidays"
-              subtitle="A travel brand built on reliability"
-            />
-          }
-        />
+        <Route path="/services" element={<SimplePage title="Passport & Visa Services" />} />
+        <Route path="/customize" element={<SimplePage title="Customize Your Trip" />} />
+        <Route path="/happy-clients" element={<SimplePage title="Happy Clients" />} />
+        <Route path="/about" element={<SimplePage title="About HR Holidays" />} />
       </Routes>
     </>
   );
