@@ -6,7 +6,7 @@ export default function App() {
     <>
       <Navbar />
 
-      {/* HERO SECTION */}
+      {/* HERO */}
       <section className="hero">
         <div className="overlay">
           <div className="hero-content">
@@ -14,12 +14,10 @@ export default function App() {
               Travel the World <br />
               the Luxury Way
             </h1>
-
             <p>
               Bespoke domestic & international holidays with seamless
               passport and visa assistance.
             </p>
-
             <a
               href="https://wa.me/918980217355"
               target="_blank"
@@ -32,33 +30,50 @@ export default function App() {
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section className="services">
-        <h2>Our Services</h2>
-
-        <div className="cards">
-          <div className="card">
-            <h3>Luxury Tours</h3>
-            <p>
-              Carefully curated domestic and international travel
-              experiences designed for comfort and elegance.
-            </p>
+      {/* DOMESTIC DESTINATIONS */}
+      <section className="destinations">
+        <h2>Domestic Destinations</h2>
+        <div className="destination-grid">
+          <div className="destination-card kashmir">
+            <div className="destination-overlay">
+              <h3>Kashmir</h3>
+            </div>
           </div>
 
-          <div className="card">
-            <h3>Passport Assistance</h3>
-            <p>
-              Complete end-to-end support for passport applications and
-              renewals without stress.
-            </p>
+          <div className="destination-card kerala">
+            <div className="destination-overlay">
+              <h3>Kerala</h3>
+            </div>
           </div>
 
-          <div className="card">
-            <h3>Visa Services</h3>
-            <p>
-              Tourist, student, and business visas handled professionally
-              and efficiently.
-            </p>
+          <div className="destination-card goa">
+            <div className="destination-overlay">
+              <h3>Goa</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* INTERNATIONAL DESTINATIONS */}
+      <section className="destinations light">
+        <h2>International Destinations</h2>
+        <div className="destination-grid">
+          <div className="destination-card maldives">
+            <div className="destination-overlay">
+              <h3>Maldives</h3>
+            </div>
+          </div>
+
+          <div className="destination-card dubai">
+            <div className="destination-overlay">
+              <h3>Dubai</h3>
+            </div>
+          </div>
+
+          <div className="destination-card bali">
+            <div className="destination-overlay">
+              <h3>Bali</h3>
+            </div>
           </div>
         </div>
       </section>
